@@ -25,11 +25,13 @@ const images = [
   },
 ];
 const gallery = document.querySelector(".gallery");
+const fragment = document.createDocumentFragment();
 images.slice(0, 3).forEach((image) => {
   const listItem = document.createElement("li");
   const img = document.createElement("img");
   img.src = image.url;
   img.alt = image.alt;
-  listItem.innerHTML = `<img src='${image.url}' alt='${image.alt}'>`;
-  gallery.insertAdjacentElement("beforeend", listItem);
+  listItem.appendChild(img);
+  fragment.appendChild(listItem);
 });
+gallery.appendChild(fragment);

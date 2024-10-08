@@ -30,12 +30,15 @@ function clear() {
 function createBoxes(amount) {
   clear();
 
+  const fragment = document.createDocumentFragment();
+
   for (let i = 0; i < amount; i++) {
     const box = document.createElement("div");
     box.style.width = `${sizes}px`;
     box.style.height = `${sizes}px`;
     box.style.backgroundColor = getRandomHexColor();
-    boxes.append(box);
+    fragment.appendChild(box);
     sizes += 10;
   }
+  boxes.appendChild(fragment);
 }
